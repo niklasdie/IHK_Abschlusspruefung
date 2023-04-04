@@ -20,7 +20,7 @@ public record Input(String pathToFile) implements IInput<String> {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            return input.toString();
+            return input.deleteCharAt(input.length() - 1).toString();
         } else {
             return null;
         }
