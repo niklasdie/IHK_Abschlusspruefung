@@ -1,4 +1,4 @@
-package de.cae.models;
+package de.cae.ipo;
 
 import de.cae.interfaces.IInput;
 

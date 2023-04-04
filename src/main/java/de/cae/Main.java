@@ -1,8 +1,8 @@
 package de.cae;
 
-import de.cae.models.Input;
-import de.cae.models.Output;
-import de.cae.models.Solver;
+import de.cae.ipo.Input;
+import de.cae.ipo.Output;
+import de.cae.ipo.Solver;
 import de.cae.utils.CmdParser;
 
 /**

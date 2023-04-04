@@ -1,7 +1,7 @@
 package de.cae.interfaces;
 
 /**
- * Ein Interface das die Eingabe des EVA-Prinzips entspricht.
+ * Ein Interface das die Eingabe des EVA-Prinzips (IPO model: Input–Process–Output) entspricht.
  *
  * @param <T> das eingelesene Objekt.
  */
