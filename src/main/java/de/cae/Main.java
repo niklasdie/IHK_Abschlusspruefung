@@ -23,6 +23,5 @@ public class Main {
                 .process()
                 .output(new Output(cmdParser.getOutput()))
                 .done();
-
     }
 }
