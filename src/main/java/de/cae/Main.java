@@ -6,7 +6,6 @@ import de.cae.ipo.Solver;
 import de.cae.utils.CmdParser;
 import de.cae.utils.IPOException;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -14,6 +13,7 @@ import java.util.logging.Logger;
  */
 public class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
+
     /**
      * main
      *
@@ -30,7 +30,7 @@ public class Main {
                     .done();
             System.out.println("\033[0;32m" + "Der Programmablauf war erfolgreich." + "\033[0m");
         } catch (IPOException e) {
-            LOGGER.log(Level.SEVERE, "\033[0;31m" + e.getMessage() + "\033[0m");
+            System.out.println("\033[0;31m" + "ERROR: " + e.getMessage() + "\033[0m");
             System.exit(1);
         }
     }

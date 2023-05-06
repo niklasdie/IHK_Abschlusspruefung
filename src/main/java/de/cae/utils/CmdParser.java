@@ -9,10 +9,10 @@ import java.util.logging.Logger;
  * Klasse zum Verarbeiten aller Programmargumente.
  */
 public class CmdParser {
-    private static final String INPUT_STRING = "-input";
-    private static final String OUTPUT_STRING = "-output";
-    private static final String LOG_STRING = "-log";
-    private static final String LOG_LEVEL_STRING = "-loglvl";
+    private static final String INPUT = "-input";
+    private static final String OUTPUT = "-output";
+    private static final String LOG = "-log";
+    private static final String LOG_LEVEL = "-loglvl";
     private static final String HELP = "-help";
     private static final Logger ROOT_LOGGER = Logger.getLogger("");
     private static final Logger LOGGER = Logger.getLogger(CmdParser.class.getName());
@@ -21,21 +21,21 @@ public class CmdParser {
     private String output;
 
     public CmdParser(String[] args) {
-        var logOption = LogOption.TRUE;
+        var logOption = LogOption.FALSE;
         for (var i = 0; i < args.length; i++) {
             if (i + 1 < args.length) {
                 switch (args[i]) {
-                    case INPUT_STRING -> this.input = args[++i];
-                    case OUTPUT_STRING -> this.output = args[++i];
-                    case LOG_STRING -> {
+                    case INPUT -> this.input = args[++i];
+                    case OUTPUT -> this.output = args[++i];
+                    case LOG -> {
                         try {
                             logOption = LogOption.getOption(args[++i]);
                         } catch (IllegalArgumentException e) {
-                            LOGGER.log(Level.WARNING, "Konnte " + args[i] + " keiner LOG_OPTION zuordnen."
-                                    + "LOG_OPTIONen sind true, false, file. Der default Wert ist false.");
+                            LOGGER.log(Level.WARNING, "Konnte " + args[i] + " keiner Log-Option zuordnen."
+                                    + "Log-Optionen sind true, false, file. Der default Wert ist false.");
                         }
                     }
-                    case LOG_LEVEL_STRING -> {
+                    case LOG_LEVEL -> {
                         Level logLevel = switch (args[++i]) {
                             case "info" -> Level.INFO;
                             case "warning" -> Level.WARNING;
@@ -46,13 +46,13 @@ public class CmdParser {
                     case HELP -> {
                         LOGGER.log(Level.INFO,
                                 "Benutzung: -input <inputFile> -output <outputFile> " +
-                                        "(-log [true, false, file]) (-loglvl [info, warning, {}]) (-help)");
+                                        "(-log [true, false, file]) (-loglvl [info, warning]) (-help)");
                     }
                     default -> {
                         LOGGER.log(Level.WARNING, "Invalid input argument: " + args[++i]);
                         LOGGER.log(Level.INFO,
                                 "Benutzung: -input <inputFile> -output <outputFile> " +
-                                        "(-log [true, false, file]) (-loglvl [info, warning, {}]) (-help)");
+                                        "(-log [true, false, file]) (-loglvl [info, warning]) (-help)");
                     }
                 }
             }

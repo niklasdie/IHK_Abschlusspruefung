@@ -56,9 +56,9 @@ task runShadowJar {
         processBuilder.command("bash",
                 "./program/run_gro_pro.sh",
                 "-input",
-                "/home/niklas/IdeaProjects/GroPro_Vorbereitung/src/main/resources/TestFile.txt",
+                "/home/niklas/IdeaProjects/GroPro_Vorbereitung/input/input.txt",
                 "-output",
-                "/home/niklas/IdeaProjects/GroPro_Vorbereitung/src/main/resources/TestFile2.txt")
+                "/home/niklas/IdeaProjects/GroPro_Vorbereitung/input/output.txt")
         Process process = processBuilder.start()
         println(new String(process.getInputStream().readAllBytes(), StandardCharsets.UTF_8))
     }
