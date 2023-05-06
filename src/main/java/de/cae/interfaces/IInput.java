@@ -1,5 +1,7 @@
 package de.cae.interfaces;
 
+import de.cae.utils.IPOException;
+
 /**
  * Ein Interface das die Eingabe des EVA-Prinzips (IPO model: Input–Process–Output) entspricht.
  *
@@ -12,6 +14,6 @@ public interface IInput<T> {
      *
      * @return das eingelesene Objekt in einem passenden Datentyp, welches bei der Implementation zu wählen ist.
      */
-    public T readInFile();
+    public T readInFile() throws IPOException;
 
 }

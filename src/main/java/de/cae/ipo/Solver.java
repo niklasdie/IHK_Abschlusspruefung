@@ -3,6 +3,7 @@ package de.cae.ipo;
 import de.cae.interfaces.IInput;
 import de.cae.interfaces.IOutput;
 import de.cae.interfaces.IProcess;
+import de.cae.utils.IPOException;
 
 public class Solver implements IProcess<String, String> {
 
@@ -14,7 +15,7 @@ public class Solver implements IProcess<String, String> {
     }
 
     @Override
-    public IProcess<String, String> input(IInput<String> IInput) {
+    public IProcess<String, String> input(IInput<String> IInput) throws IPOException {
         this.data = IInput.readInFile();
         return this;
     }
@@ -26,7 +27,7 @@ public class Solver implements IProcess<String, String> {
     }
 
     @Override
-    public IProcess<String, String> output(IOutput<String> IOutput) {
+    public IProcess<String, String> output(IOutput<String> IOutput) throws IPOException {
         IOutput.writeToFile(this.data);
         return this;
     }

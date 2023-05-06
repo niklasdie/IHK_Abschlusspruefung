@@ -1,5 +1,7 @@
 package de.cae.interfaces;
 
+import de.cae.utils.IPOException;
+
 /**
  * Ein Interface das die Verarbeitung des EVA-Prinzips (IPO model: Input–Process–Output) entspricht.
  *
@@ -19,7 +21,7 @@ public interface IProcess<I, O> {
      * @param IInput der Input
      * @return this Objekt für Chaining
      */
-    IProcess<I, O> input(IInput<I> IInput);
+    IProcess<I, O> input(IInput<I> IInput) throws IPOException;
 
     /**
      * Methode um die Verarbeitung zu starten.
@@ -34,6 +36,6 @@ public interface IProcess<I, O> {
      * @param IOutput der Output
      * @return this Objekt für Chaining
      */
-    IProcess<I, O> output(IOutput<O> IOutput);
+    IProcess<I, O> output(IOutput<O> IOutput) throws IPOException;
 
 }

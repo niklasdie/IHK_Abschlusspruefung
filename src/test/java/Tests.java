@@ -23,9 +23,10 @@ public class Tests {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            return input.deleteCharAt(input.length() - 1).toString();
-        } else {
-            return null;
+            if (!input.isEmpty()) {
+                return input.deleteCharAt(input.length() - 1).toString();
+            }
         }
+        return null;
     }
 }

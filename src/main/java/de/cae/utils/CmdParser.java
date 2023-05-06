@@ -46,13 +46,13 @@ public class CmdParser {
                     case HELP -> {
                         LOGGER.log(Level.INFO,
                                 "Benutzung: -input <inputFile> -output <outputFile> " +
-                                        "(-log [true, false, file]) (-loglvl [info, warning, {}])");
+                                        "(-log [true, false, file]) (-loglvl [info, warning, {}]) (-help)");
                     }
                     default -> {
                         LOGGER.log(Level.WARNING, "Invalid input argument: " + args[++i]);
                         LOGGER.log(Level.INFO,
                                 "Benutzung: -input <inputFile> -output <outputFile> " +
-                                        "(-log [true, false, file]) (-loglvl [info, warning, {}])");
+                                        "(-log [true, false, file]) (-loglvl [info, warning, {}]) (-help)");
                     }
                 }
             }
