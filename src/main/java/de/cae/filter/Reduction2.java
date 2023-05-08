@@ -4,10 +4,13 @@ import de.cae.interfaces.IFilter;
 
 import java.util.ArrayList;
 
+/**
+ * Filter für die Datenreduktionstechnik 2.
+ */
 public record Reduction2(ArrayList<String> allStops) implements IFilter<ArrayList<ArrayList<String>>, ArrayList<ArrayList<String>>> {
 
     /**
-     * Methode die den Algorithmus der Klasse entspricht.
+     * Methode um alle Bahnhöfe zu entfernen, die Teilmengen von anderen Zügen sind.
      *
      * @param trainConnections Eingabedaten als Zugverbindungen
      * @return vom Algorithmus berechnetes Ergebnis

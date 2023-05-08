@@ -4,10 +4,13 @@ import de.cae.interfaces.IFilter;
 
 import java.util.ArrayList;
 
+/**
+ * Filter für die Datenreduktionstechnik 3.
+ */
 public class Reduction3 implements IFilter<ArrayList<ArrayList<String>>, ArrayList<ArrayList<String>>> {
 
     /**
-     * Methode die den Algorithmus der Klasse entspricht.
+     * Methode um voll Überdeckungen zweier Züge zu vermeiden.
      *
      * @param trainConnections Eingabedaten als Zugverbindungen
      * @return vom Algorithmus berechnetes Ergebnis
