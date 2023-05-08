@@ -26,3 +26,7 @@ in einer Datei abzuspeichern. Diese Logdatei wird dann im aktuellen Verzeichnis 
 Standardmäßig wird nur angezeigt, ob das Programm erfolgreich durchgelaufen ist oder 
 ob ein Fehler aufgetreten ist. 
 Bei einem Fehler wird dieser ebenfalls standardmäßig in der Konsole ausgegeben. 
+Ebenfalls kann das Loglevel eingestellt werden, so kann man sich nur die Informationen
+oder Warnungen ausgeben lassen. 
+Standardmäßig ist hier, dass alle Logs ausgegeben werden.
+Mittels "-h" kann man sich nochmals eine Hilfe aufgerufen werden.

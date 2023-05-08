@@ -1,7 +1,7 @@
 package de.cae;
 
-import de.cae.ipo.Input;
-import de.cae.ipo.Output;
+import de.cae.ipo.TextInput;
+import de.cae.ipo.TextOutput;
 import de.cae.ipo.Solver;
 import de.cae.utils.CmdParser;
 import de.cae.utils.IPOException;
@@ -24,9 +24,9 @@ public class Main {
 
         try {
             new Solver()
-                    .input(new Input(cmdParser.getInput()))
+                    .input(new TextInput(cmdParser.getInput()))
                     .process()
-                    .output(new Output(cmdParser.getOutput()))
+                    .output(new TextOutput(cmdParser.getOutput()))
                     .done();
             System.out.println("\033[0;32m" + "Der Programmablauf war erfolgreich." + "\033[0m");
         } catch (IPOException e) {

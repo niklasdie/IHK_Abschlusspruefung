@@ -7,28 +7,36 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public record Input(String pathToFile) implements IInput<String> {
+public record TextInput(String pathToFile) implements IInput<ArrayList<ArrayList<String>>> {
 
-    private static final Logger LOGGER = Logger.getLogger(Input.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(TextInput.class.getName());
 
     @Override
-    public String readInFile() throws IPOException {
+    public ArrayList<ArrayList<String>> readInFile() throws IPOException {
         try {
             var file = new File(pathToFile);
             if (file.isFile() && file.canRead()) {
-                StringBuilder input;
+                ArrayList<ArrayList<String>> trainCons;
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-                    input = new StringBuilder();
+                    trainCons = new ArrayList<>();
                     LOGGER.log(Level.INFO, "Lese Datei ein: " + file.getAbsolutePath());
-                    reader.lines().forEach(line -> input.append(line).append("\n"));
+                    reader.lines().forEach(line -> {
+                        if (line.charAt(0) != '#') {
+                            trainCons.add(new ArrayList<>(List.of(line.split(";"))));
+                        }
+                    });
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 LOGGER.log(Level.INFO, "Einlesen war erfolgreich");
-                return input.deleteCharAt(input.length() - 1).toString();
+                return trainCons;
             } else {
                 throw new IPOException("\033[0;31m" +
                         "Datei " + file.getAbsolutePath() + " konnte nicht eingelesen werden!" +

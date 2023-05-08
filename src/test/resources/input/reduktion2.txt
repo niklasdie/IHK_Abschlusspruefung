@@ -1,0 +1,6 @@
+# Vor Datenreduktion 2
+# Züge laufen gleiche Teilmenge an Bahnhöfen an
+S;DA;H;K
+FFM;DA;H;K
+M;DA;H;B
+C;M;H;E

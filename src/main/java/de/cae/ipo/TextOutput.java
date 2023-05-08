@@ -6,21 +6,31 @@ import de.cae.utils.IPOException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public record Output(String pathToFile) implements IOutput<String> {
+public record TextOutput(String pathToFile) implements IOutput<ArrayList<String>> {
 
-    private static final Logger LOGGER = Logger.getLogger(Output.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(TextOutput.class.getName());
 
     @Override
-    public boolean writeToFile(String output) throws IPOException {
+    public boolean writeToFile(ArrayList<String> output) throws IPOException {
         try {
             File file = new File(pathToFile);
             try {
+                StringBuilder outputString = new StringBuilder();
+                for (String s : output) {
+                    outputString.append(s).append(";");
+                }
+
                 FileWriter writer = new FileWriter(file);
                 LOGGER.log(Level.INFO, "Schreibe Datei: " + file.getAbsolutePath());
-                writer.write(output);
+                writer.write(outputString
+                        .insert(0, "Servicestationen in: ")
+                        .deleteCharAt(outputString.length() - 1)
+                        .toString()
+                );
                 writer.close();
                 LOGGER.log(Level.INFO, "Schreiben war erfolgreich");
                 return true;
