@@ -7,6 +7,7 @@ public class IPOException extends Exception {
 
     /**
      * Konstruktor, welcher nur super aufruft.
+     *
      * @param err Fehlermeldung
      */
     public IPOException(String err) {

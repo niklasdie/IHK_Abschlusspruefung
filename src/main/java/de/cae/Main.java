@@ -1,18 +1,15 @@
 package de.cae;
 
+import de.cae.ipo.CalculateServiceStations;
 import de.cae.ipo.TextInput;
 import de.cae.ipo.TextOutput;
-import de.cae.ipo.Solver;
 import de.cae.utils.CmdParser;
 import de.cae.utils.IPOException;
-
-import java.util.logging.Logger;
 
 /**
  * Main-Klasse welche über den Programmaufruf gestartet wird.
  */
 public class Main {
-    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     /**
      * main
@@ -23,7 +20,7 @@ public class Main {
         var cmdParser = new CmdParser(args);
 
         try {
-            new Solver()
+            new CalculateServiceStations()
                     .input(new TextInput(cmdParser.getInput()))
                     .process()
                     .output(new TextOutput(cmdParser.getOutput()))

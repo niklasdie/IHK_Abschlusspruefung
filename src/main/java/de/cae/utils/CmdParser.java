@@ -20,6 +20,11 @@ public class CmdParser {
     private String input;
     private String output;
 
+    /**
+     * Erstellt eine neue Instanz und verarbeitet die übergebenen Argumente.
+     *
+     * @param args Programmargumente
+     */
     public CmdParser(String[] args) {
         var logOption = LogOption.FALSE;
         for (var i = 0; i < args.length; i++) {

@@ -1,0 +1,3 @@
+# redundante Bahnhöfe mit einer Verbindung
+A;A;B;B;B
+A;C;A;C

@@ -11,7 +11,11 @@ import de.cae.utils.IPOException;
 
 import java.util.ArrayList;
 
-public class Solver implements IProcess<ArrayList<ArrayList<String>>, ArrayList<String>> {
+/**
+ * Verarbeitung des EVA-Modells, welche die minimale Anzahl von Servicestationen und deren Standort
+ * anhand einer Eingabe berechnet und das Ergebnis ausgibt.
+ */
+public class CalculateServiceStations implements IProcess<ArrayList<ArrayList<String>>, ArrayList<String>> {
 
     private ArrayList<ArrayList<String>> trainConnections;
     private ArrayList<String> allStops;
@@ -19,7 +23,6 @@ public class Solver implements IProcess<ArrayList<ArrayList<String>>, ArrayList<
 
     @Override
     public void done() {
-
     }
 
     @Override

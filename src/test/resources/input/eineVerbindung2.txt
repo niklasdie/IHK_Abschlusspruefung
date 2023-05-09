@@ -1,0 +1,6 @@
+# eine Verbindung in A
+A;B
+A;C
+A;D
+E;A;F
+X;Y;Z;A

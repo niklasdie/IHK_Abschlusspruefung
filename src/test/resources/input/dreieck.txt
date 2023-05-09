@@ -1,0 +1,4 @@
+# Dreieck
+A;B
+B;C
+A;C

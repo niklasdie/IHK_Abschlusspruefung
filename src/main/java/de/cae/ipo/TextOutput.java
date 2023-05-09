@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Ausgabe des EVA-Modells, die das berechnete Ergebnis in einer Textdatei ausgibt.
+ */
 public record TextOutput(String pathToFile) implements IOutput<ArrayList<String>> {
 
     private static final Logger LOGGER = Logger.getLogger(TextOutput.class.getName());

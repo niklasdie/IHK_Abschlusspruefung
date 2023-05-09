@@ -1,0 +1,2 @@
+# Minimaleingabe
+A;B

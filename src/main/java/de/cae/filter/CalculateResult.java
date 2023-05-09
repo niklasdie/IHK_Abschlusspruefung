@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Filter der die Servicestandorte berechnet.
+ * Filter der die minimale Anzahl und Standort der Servicestandorte berechnet.
  */
 public class CalculateResult implements IFilter<ArrayList<ArrayList<String>>, ArrayList<String>> {
 
@@ -20,8 +20,8 @@ public class CalculateResult implements IFilter<ArrayList<ArrayList<String>>, Ar
     public ArrayList<String> algorithmus(ArrayList<ArrayList<String>> trainConnections) {
         ArrayList<String> result = new ArrayList<>();
         while (!trainConnections.isEmpty()) {
-        ArrayList<String> allStops = generateAllStops(trainConnections);
-            int[] count = new int[allStops.size()];     // Array für Zählung der Stationen
+            ArrayList<String> allStops = generateAllStops(trainConnections);
+            int[] count = new int[allStops.size()];         // Array für Zählung der Stationen
             Arrays.fill(count, 0);
             for (ArrayList<String> connection : trainConnections) {
                 for (String station : connection) {
@@ -49,6 +49,7 @@ public class CalculateResult implements IFilter<ArrayList<ArrayList<String>>, Ar
 
     /**
      * Hilfsmethode die eine Liste aus allen verfügbaren Bahnhöfen erstellt.
+     *
      * @param trainConnections Zugverbindungen
      * @return Liste mit allen Bahnhöfen
      */

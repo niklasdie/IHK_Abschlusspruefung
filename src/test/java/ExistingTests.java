@@ -3,14 +3,11 @@ import de.cae.filter.Reduction2;
 import de.cae.filter.Reduction3;
 import de.cae.ipo.TextInput;
 import de.cae.ipo.TextOutput;
-import de.cae.ipo.Solver;
+import de.cae.ipo.CalculateServiceStations;
 import de.cae.utils.IPOException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +19,7 @@ public class ExistingTests extends Tests {
         String inputFile = "src/test/resources/input/beispiel.txt";
         String outputFile = "src/test/resources/output/beispiel.txt";
         try {
-            new Solver()
+            new CalculateServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
@@ -44,8 +41,7 @@ public class ExistingTests extends Tests {
             ArrayList<String> result = reduction1.algorithmus(input).get(0);
             List<String> expected = Arrays.asList("HH", "H", "K");
             Assertions.assertEquals(expected.size(), result.size());
-            Assertions.assertTrue(expected.containsAll(result));
-            Assertions.assertTrue(result.containsAll(expected));
+            Assertions.assertEquals(expected, result);
         } catch (IPOException e) {
             System.exit(1);
         }
@@ -54,7 +50,6 @@ public class ExistingTests extends Tests {
     @Test
     public void reduktion2() {
         String inputFile = "src/test/resources/input/reduktion2.txt";
-        String outputFile = "src/test/resources/output/reduktion2.txt";
         try {
             TextInput textInput = new TextInput(inputFile);
             ArrayList<ArrayList<String>> input = textInput.readInFile();
@@ -67,8 +62,7 @@ public class ExistingTests extends Tests {
                     Arrays.asList("C", "M", "H", "E")
             );
             Assertions.assertEquals(expected.size(), result.size());
-            Assertions.assertTrue(expected.containsAll(result));
-            Assertions.assertTrue(result.containsAll(expected));
+            Assertions.assertEquals(expected, result);
         } catch (IPOException e) {
             System.exit(1);
         }
@@ -77,7 +71,6 @@ public class ExistingTests extends Tests {
     @Test
     public void reduktion3() {
         String inputFile = "src/test/resources/input/reduktion3.txt";
-        String outputFile = "src/test/resources/output/reduktion3.txt";
         try {
             TextInput textInput = new TextInput(inputFile);
             ArrayList<ArrayList<String>> input = textInput.readInFile();
@@ -89,8 +82,7 @@ public class ExistingTests extends Tests {
                     Arrays.asList("C", "M", "E")
             );
             Assertions.assertEquals(expected.size(), result.size());
-            Assertions.assertTrue(expected.containsAll(result));
-            Assertions.assertTrue(result.containsAll(expected));
+            Assertions.assertEquals(expected, result);
         } catch (IPOException e) {
             System.exit(1);
         }
