@@ -1,4 +1,4 @@
-# Vor Datenreduktion 3
+# Datenreduktionstechnik 3
 S;DA;H;K
 DA;H
 M;N;DA;B

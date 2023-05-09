@@ -162,9 +162,9 @@ public class OwnTests extends Tests {
             ArrayList<ArrayList<String>> result = reduction2.algorithmus(input);
             List<List<String>> expected = List.of(
                     Arrays.asList("X", "B"),
-                    Arrays.asList("C", "X", "D"),
-                    Arrays.asList("X", "D"),
-                    Arrays.asList("X", "C")
+                    List.of("X"),
+                    List.of("X"),
+                    List.of("X")
             );
             Assertions.assertEquals(expected.size(), result.size());
             Assertions.assertEquals(expected, result);

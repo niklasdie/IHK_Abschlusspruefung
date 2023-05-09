@@ -1,0 +1,22 @@
+# Generiertes Beispiel
+# mit 20 Zugverbindungen und 20 Zuegen
+U;I;H;U;G;N;F;S;I;G
+O;V;S
+X;X;B;Q;V;Q
+V;W;A
+D;V;P
+P;R;C;A;B;R;F;U
+N;D;M;J;O;R
+N;Z;M;W;T;X;R;I
+O;R;L;A;M;O;P;D;J
+W;Q;O;O;V;J;S;J;N;H;O;R;J
+U;C;P;P;W;H;S
+U;W;A;H;Z
+K;E;T;I;P;C;E;N
+S;Y;T;X;C;L;E;O;X;U;F
+E;T;U;X;Q;C;S;E;T;F
+P;T;J;N;V;I;D;X;W;H
+O;J;G;K;E;Y;S;I;O
+V;E;G;D;S
+V;O;R;P;J
+P;R;X;Q;F;T;H;M;L

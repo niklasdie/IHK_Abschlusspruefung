@@ -1,0 +1,12 @@
+# Generiertes Beispiel
+# mit 10 Zugverbindungen und 10 Zuegen
+J;K;M;R;F;U;F;W
+A;L;L;D;W;F;L
+N;W;R;N;I;D;X
+T;C;N;N;F;D
+M;Z;I;B;M;U;P;T
+O;T;Q;J;A
+Y;M;K;P
+J;F;E;J;M;W;N;R
+E;C;R;P;C;X;Z
+W;M;O

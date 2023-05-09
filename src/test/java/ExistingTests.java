@@ -55,11 +55,11 @@ public class ExistingTests extends Tests {
             ArrayList<ArrayList<String>> input = textInput.readInFile();
             Reduction2 reduction2 = new Reduction2(generateAllStops(input));
             ArrayList<ArrayList<String>> result = reduction2.algorithmus(input);
-            List<List<String>> expected = List.of(
-                    Arrays.asList("S", "H", "K"),
-                    Arrays.asList("FFM", "H", "K"),
-                    Arrays.asList("M", "H", "B"),
-                    Arrays.asList("C", "M", "H", "E")
+            List<List<String>> expected = List.of(  // Angepasst, da in Beispiel nur eine Teilmenge entfernt wurde
+                    Arrays.asList("S", "H"),
+                    Arrays.asList("FFM", "H"),
+                    Arrays.asList("H", "B"),
+                    Arrays.asList("C", "H", "E")
             );
             Assertions.assertEquals(expected.size(), result.size());
             Assertions.assertEquals(expected, result);

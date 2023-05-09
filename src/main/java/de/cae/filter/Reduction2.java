@@ -20,7 +20,7 @@ public record Reduction2(
     public ArrayList<ArrayList<String>> algorithmus(ArrayList<ArrayList<String>> trainConnections) {
         for (int a = 0; a < allStops.size(); a++) {
             for (int b = 0; b < allStops.size(); b++) {
-                // List für alle Zugverbindungen die Bahnhof A und B anlaufen
+                // List für alle Zugverbindungen die Bahnhof A und B anlaufen.
                 ArrayList<Integer> list = new ArrayList<>();
                 if (a != b) {
                     for (int c = 0; c < trainConnections.size(); c++) {
@@ -35,7 +35,7 @@ public record Reduction2(
                                 break;              // und Durchlauf wird abgebrochen
                             }
                     }
-                    if (list.size() > 2) {
+                    if (list.size() > 1) {
                         // In alle Zugverbindungen die Bahnhof A und B anlaufen, kann A gelöscht werden.
                         for (Integer integer : list) {
                             trainConnections.get(integer).remove(allStops.get(a));
