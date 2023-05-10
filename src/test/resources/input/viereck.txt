@@ -1,4 +1,7 @@
 # Viereck
+# A---B
+# |   |
+# D---C
 A;B
 B;C
 C;D

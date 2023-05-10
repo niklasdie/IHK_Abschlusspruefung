@@ -9,19 +9,19 @@ import java.util.Random;
 public class InputGenerator {
 
     public static void main(String[] args) {
-        generateInput(90,90,"input/generierterInput_90_90.txt");
+        generateInput(90, 90, "input/generierterInput_90_90.txt");
     }
 
-    public static void generateInput(int amountConnections, int amountTrains, String file) {
+    public static void generateInput(int amountConnections, int amountStations, String file) {
         ArrayList<ArrayList<String>> res = new ArrayList<>();
         for (int rows = 0; rows < amountConnections; rows++) {
             ArrayList<String> row = new ArrayList<>();
-            for (int length = 0; length < (Math.random() / 2) * amountTrains * 3 + 1; length++) {
-                row.add(getToken(amountTrains));
+            for (int length = 0; length < (Math.random() / 2) * amountStations * 3 + 1; length++) {
+                row.add(getToken(amountStations));
             }
             res.add(new ArrayList<>(row));
         }
-        writeToFile(amountConnections, amountTrains, res, file);
+        writeToFile(amountConnections, amountStations, res, file);
     }
 
     private static String getToken(int x) {
@@ -33,7 +33,7 @@ public class InputGenerator {
         return res.toString();
     }
 
-    private static void writeToFile(int amountConnections, int amountTrains, ArrayList<ArrayList<String>> output, String pathToFile) {
+    private static void writeToFile(int amountConnections, int amountStations, ArrayList<ArrayList<String>> output, String pathToFile) {
         File file = new File(pathToFile);
         try {
             StringBuilder outputString = new StringBuilder();
@@ -48,7 +48,7 @@ public class InputGenerator {
             writer.write(outputString
                     .insert(0, "# Generiertes Beispiel\n" +
                             "# mit " + amountConnections + " Zugverbindungen und " +
-                            amountTrains + " Zuegen\n")
+                            amountStations + " Zuegen\n")
                     .deleteCharAt(outputString.length() - 1)
                     .toString()
             );

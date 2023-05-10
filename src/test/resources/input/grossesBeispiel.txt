@@ -1,5 +1,8 @@
 # großes Beispiel
-A;I;Q;J;E;N;Y;F;M;L;U;H;;L;X;A
-Q;H;A;W;P;G;B;K;D;O;V;L;F;D;C;H;E;F;S;N;Z;T;J;C;D
-Q;I;R;T;J;N;Y;S;M;L;U;V;D;F;E;O;K;P;W;A;H;K;X;W;A;I
+V;L;F;D;T;C;C;H;E;F;S;N;Z;T
+A;I;Q;J;E;N;Y;F;M;L;U;H;L;X;A
+Q;H;A;W;P;G;B;K;D;O;V;L;F;D;C;H;E;F;S;N;B;Z;T;J;C;D
+L;U;V;D;Q;X;F;E;O;K;P;W
+Q;I;R;T;J;N;Y;S;M;L;U;V;D;Q;X;F;E;O;K;P;W;A;H;K;X;W;A;I
 J;Z;E;Q;K;F;E;S;M;L;U;V;G;P;W;A
+F;E;S;M;L;S;F

@@ -29,7 +29,7 @@ public record TextInput(String pathToFile) implements IInput<ArrayList<ArrayList
                     trainCons = new ArrayList<>();
                     LOGGER.log(Level.INFO, "Lese Datei ein: " + file.getAbsolutePath());
                     reader.lines().forEach(line -> {
-                        if (line.charAt(0) != '#') {
+                        if (!line.isEmpty() && line.charAt(0) != '#') {
                             ArrayList<String> input = new ArrayList<>(List.of(line.split(";")));
                             if (input.size() > 1) {
                                 trainCons.add(input);

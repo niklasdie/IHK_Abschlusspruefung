@@ -1,7 +1,7 @@
 import de.cae.filter.Reduction1;
 import de.cae.filter.Reduction2;
 import de.cae.filter.Reduction3;
-import de.cae.ipo.CalculateServiceStations;
+import de.cae.ipo.ProcessServiceStations;
 import de.cae.ipo.TextInput;
 import de.cae.ipo.TextOutput;
 import de.cae.utils.IPOException;
@@ -19,7 +19,24 @@ public class OwnTests extends Tests {
         String inputFile = "src/test/resources/input/minimal.txt";
         String outputFile = "src/test/resources/output/minimal.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
+                    .input(new TextInput(inputFile))
+                    .process()
+                    .output(new TextOutput(outputFile))
+                    .done();
+        } catch (IPOException e) {
+            System.exit(1);
+        }
+
+        Assertions.assertEquals("Servicestationen in: A", readFromOutputFile(outputFile));
+    }
+
+    @Test
+    public void eineVerbindung() {
+        String inputFile = "src/test/resources/input/eineVerbindung.txt";
+        String outputFile = "src/test/resources/output/eineVerbindung.txt";
+        try {
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
@@ -36,7 +53,7 @@ public class OwnTests extends Tests {
         String inputFile = "src/test/resources/input/dreieck.txt";
         String outputFile = "src/test/resources/output/dreieck.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
@@ -49,11 +66,11 @@ public class OwnTests extends Tests {
     }
 
     @Test
-    public void eineVerbindung() {
-        String inputFile = "src/test/resources/input/eineVerbindung.txt";
-        String outputFile = "src/test/resources/output/eineVerbindung.txt";
+    public void eineVerbindung2() {
+        String inputFile = "src/test/resources/input/eineVerbindung2.txt";
+        String outputFile = "src/test/resources/output/eineVerbindung2.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
@@ -66,11 +83,11 @@ public class OwnTests extends Tests {
     }
 
     @Test
-    public void eineVerbindung2() {
-        String inputFile = "src/test/resources/input/eineVerbindung2.txt";
-        String outputFile = "src/test/resources/output/eineVerbindung2.txt";
+    public void keineVerbindung() {
+        String inputFile = "src/test/resources/input/keineVerbindung.txt";
+        String outputFile = "src/test/resources/output/keineVerbindung.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
@@ -79,7 +96,24 @@ public class OwnTests extends Tests {
             System.exit(1);
         }
 
-        Assertions.assertEquals("Servicestationen in: A", readFromOutputFile(outputFile));
+        Assertions.assertEquals("Servicestationen in: A;C", readFromOutputFile(outputFile));
+    }
+
+    @Test
+    public void keineVerbindung2() {
+        String inputFile = "src/test/resources/input/keineVerbindung2.txt";
+        String outputFile = "src/test/resources/output/keineVerbindung2.txt";
+        try {
+            new ProcessServiceStations()
+                    .input(new TextInput(inputFile))
+                    .process()
+                    .output(new TextOutput(outputFile))
+                    .done();
+        } catch (IPOException e) {
+            System.exit(1);
+        }
+
+        Assertions.assertEquals("Servicestationen in: A;H;L;P;U;W", readFromOutputFile(outputFile));
     }
 
     @Test
@@ -87,7 +121,7 @@ public class OwnTests extends Tests {
         String inputFile = "src/test/resources/input/viereck.txt";
         String outputFile = "src/test/resources/output/viereck.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
@@ -104,7 +138,7 @@ public class OwnTests extends Tests {
         String inputFile = "src/test/resources/input/viereckEineVerbindung.txt";
         String outputFile = "src/test/resources/output/viereckEineVerbindung.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
@@ -121,7 +155,7 @@ public class OwnTests extends Tests {
         String inputFile = "src/test/resources/input/grossesBeispiel.txt";
         String outputFile = "src/test/resources/output/grossesBeispiel.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
@@ -130,7 +164,7 @@ public class OwnTests extends Tests {
             System.exit(1);
         }
 
-        Assertions.assertEquals("Servicestationen in: L", readFromOutputFile(outputFile));
+        Assertions.assertEquals("Servicestationen in: E", readFromOutputFile(outputFile));
     }
 
     @Test
@@ -199,16 +233,14 @@ public class OwnTests extends Tests {
         String inputFile = "src/test/resources/input/randfaelle/eineStation.txt";
         String outputFile = "src/test/resources/output/randfaelle/eineStation.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
                     .done();
         } catch (IPOException e) {
-            System.exit(1);
+            Assertions.assertEquals("Keine Zugverbindungen vorhanden zum verarbeiten.", e.getMessage());
         }
-
-        Assertions.assertEquals("Servicestationen in:", readFromOutputFile(outputFile));
     }
 
     @Test
@@ -216,7 +248,22 @@ public class OwnTests extends Tests {
         String inputFile = "src/test/resources/input/randfaelle/leereDatei.txt";
         String outputFile = "src/test/resources/output/randfaelle/leereDatei.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
+                    .input(new TextInput(inputFile))
+                    .process()
+                    .output(new TextOutput(outputFile))
+                    .done();
+        } catch (IPOException e) {
+            Assertions.assertEquals("Keine Zugverbindungen vorhanden zum verarbeiten.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void leereZeile() {
+        String inputFile = "src/test/resources/input/leereZeile.txt";
+        String outputFile = "src/test/resources/output/leereZeile.txt";
+        try {
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))
@@ -225,6 +272,38 @@ public class OwnTests extends Tests {
             System.exit(1);
         }
 
-        Assertions.assertEquals("Servicestationen in:", readFromOutputFile(outputFile));
+        Assertions.assertEquals("Servicestationen in: A", readFromOutputFile(outputFile));
+    }
+
+    @Test
+    public void einBahnhofZeile() {
+        String inputFile = "src/test/resources/input/einBahnhofZeile.txt";
+        String outputFile = "src/test/resources/output/einBahnhofZeile.txt";
+        try {
+            new ProcessServiceStations()
+                    .input(new TextInput(inputFile))
+                    .process()
+                    .output(new TextOutput(outputFile))
+                    .done();
+        } catch (IPOException e) {
+            System.exit(1);
+        }
+
+        Assertions.assertEquals("Servicestationen in: A", readFromOutputFile(outputFile));
+    }
+
+    @Test
+    public void leereZeilenOderEinBahnhof() {
+        String inputFile = "src/test/resources/input/leereZeilenOderEinBahnhof.txt";
+        String outputFile = "src/test/resources/output/leereZeilenOderEinBahnhof.txt";
+        try {
+            new ProcessServiceStations()
+                    .input(new TextInput(inputFile))
+                    .process()
+                    .output(new TextOutput(outputFile))
+                    .done();
+        } catch (IPOException e) {
+            Assertions.assertEquals("Keine Zugverbindungen vorhanden zum verarbeiten.", e.getMessage());
+        }
     }
 }

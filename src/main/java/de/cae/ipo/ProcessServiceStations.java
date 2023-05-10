@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Verarbeitung des EVA-Modells, welche die minimale Anzahl von Servicestationen und deren Standort
  * anhand einer Eingabe berechnet und das Ergebnis ausgibt.
  */
-public class CalculateServiceStations implements IProcess<ArrayList<ArrayList<String>>, ArrayList<String>> {
+public class ProcessServiceStations implements IProcess<ArrayList<ArrayList<String>>, ArrayList<String>> {
 
     private ArrayList<ArrayList<String>> trainConnections;
     private ArrayList<String> allStops;
@@ -34,7 +34,10 @@ public class CalculateServiceStations implements IProcess<ArrayList<ArrayList<St
 
     @Override
     public IProcess<ArrayList<ArrayList<String>>, ArrayList<String>>
-    process() {
+    process() throws IPOException {
+        if (trainConnections.isEmpty()) {
+            throw new IPOException("Keine Zugverbindungen vorhanden zum verarbeiten.");
+        }
         allStops = generateAllStops(trainConnections);
         Reduction1 reduction1 = new Reduction1();
         reduction1.algorithmus(trainConnections);

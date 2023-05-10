@@ -1,0 +1,8 @@
+# leere Zeile oder ein Bahnhof
+# Programmabbruch
+A
+
+B
+C
+
+D

@@ -3,7 +3,7 @@ import de.cae.filter.Reduction2;
 import de.cae.filter.Reduction3;
 import de.cae.ipo.TextInput;
 import de.cae.ipo.TextOutput;
-import de.cae.ipo.CalculateServiceStations;
+import de.cae.ipo.ProcessServiceStations;
 import de.cae.utils.IPOException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ public class ExistingTests extends Tests {
         String inputFile = "src/test/resources/input/beispiel.txt";
         String outputFile = "src/test/resources/output/beispiel.txt";
         try {
-            new CalculateServiceStations()
+            new ProcessServiceStations()
                     .input(new TextInput(inputFile))
                     .process()
                     .output(new TextOutput(outputFile))

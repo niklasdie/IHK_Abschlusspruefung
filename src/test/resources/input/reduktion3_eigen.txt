@@ -1,4 +1,4 @@
-# 3. Reduktionsverfahren
+# 3. Reduktionsverfahren komplex
 A;B;C;D
 A;B;C
 A;B

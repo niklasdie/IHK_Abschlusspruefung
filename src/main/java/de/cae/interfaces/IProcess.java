@@ -28,7 +28,7 @@ public interface IProcess<I, O> {
      *
      * @return this Objekt für Chaining
      */
-    IProcess<I, O> process();
+    IProcess<I, O> process() throws IPOException;
 
     /**
      * Methode, um mit einem IOutput den Output zu schreiben.

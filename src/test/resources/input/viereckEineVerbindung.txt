@@ -1,2 +1,5 @@
 # Viereck als eine Zugverbindung mit doppelter Station A
+# A---B
+# |   |
+# D---C
 A;B;C;D;A

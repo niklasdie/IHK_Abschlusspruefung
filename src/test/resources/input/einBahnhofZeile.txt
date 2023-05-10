@@ -1,0 +1,5 @@
+# ein Bahnhof in einer Zeile
+# kein Programmabbruch
+A;B
+X
+A;C
