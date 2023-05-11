@@ -9,7 +9,7 @@ import java.util.Random;
 public class InputGenerator {
 
     public static void main(String[] args) {
-        generateInput(90, 90, "input/generierterInput_90_90.txt");
+        generateInput(101, 101, "input/generierterInput_101_101.txt");
     }
 
     public static void generateInput(int amountConnections, int amountStations, String file) {

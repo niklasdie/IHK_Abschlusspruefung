@@ -28,37 +28,36 @@ public class CmdParser {
     public CmdParser(String[] args) {
         var logOption = LogOption.FALSE;
         for (var i = 0; i < args.length; i++) {
-            if (i + 1 < args.length) {
-                switch (args[i]) {
-                    case INPUT -> this.input = args[++i];
-                    case OUTPUT -> this.output = args[++i];
-                    case LOG -> {
-                        try {
-                            logOption = LogOption.getOption(args[++i]);
-                        } catch (IllegalArgumentException e) {
-                            LOGGER.log(Level.WARNING, "Konnte " + args[i] + " keiner Log-Option zuordnen."
-                                    + "Log-Optionen sind true, false, file. Der default Wert ist false.");
-                        }
+            switch (args[i]) {
+                case INPUT -> this.input = args[++i];
+                case OUTPUT -> this.output = args[++i];
+                case LOG -> {
+                    try {
+                        logOption = LogOption.getOption(args[++i]);
+                    } catch (IllegalArgumentException e) {
+                        LOGGER.log(Level.WARNING, "Konnte " + args[i] + " keiner Log-Option zuordnen."
+                                + "Log-Optionen sind true, false, file. Der default Wert ist false.");
                     }
-                    case LOG_LEVEL -> {
-                        Level logLevel = switch (args[++i]) {
-                            case "info" -> Level.INFO;
-                            case "warning" -> Level.WARNING;
-                            default -> Level.ALL;
-                        };
-                        ROOT_LOGGER.setLevel(logLevel);
-                    }
-                    case HELP -> {
-                        LOGGER.log(Level.INFO,
-                                "Benutzung: -input <inputFile> -output <outputFile> " +
-                                        "(-log [true, false, file]) (-loglvl [info, warning]) (-help)");
-                    }
-                    default -> {
-                        LOGGER.log(Level.WARNING, "Invalid input argument: " + args[++i]);
-                        LOGGER.log(Level.INFO,
-                                "Benutzung: -input <inputFile> -output <outputFile> " +
-                                        "(-log [true, false, file]) (-loglvl [info, warning]) (-help)");
-                    }
+                }
+                case LOG_LEVEL -> {
+                    Level logLevel = switch (args[++i]) {
+                        case "info" -> Level.INFO;
+                        case "warning" -> Level.WARNING;
+                        default -> Level.ALL;
+                    };
+                    ROOT_LOGGER.setLevel(logLevel);
+                }
+                case HELP -> {
+                    System.out.println("\033[0;32m" + "Benutzung: -input <inputFile> -output <outputFile> " +
+                            "(-log [true, false, file]) (-loglvl [info, warning]) (-help)" + "\033[0m");
+                    System.exit(0);
+                }
+                default -> {
+                    System.out.println("\033[0;31m" + "Invalid input argument: " + args[i] + "\033[0m");
+                    System.out.println("\033[0;32m" +
+                            "Benutzung: -input <inputFile> -output <outputFile> " +
+                            "(-log [true, false, file]) (-loglvl [info, warning]) (-help)" + "\033[0m");
+                    System.exit(0);
                 }
             }
         }

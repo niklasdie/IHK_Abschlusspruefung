@@ -38,6 +38,10 @@ public class ProcessServiceStations implements IProcess<ArrayList<ArrayList<Stri
         if (trainConnections.isEmpty()) {
             throw new IPOException("Keine Zugverbindungen vorhanden zum verarbeiten.");
         }
+        if (trainConnections.size() > 100) {
+            System.out.println("\033[0;31m" + "Die Berechnugszeit kann bei großen Eingabedaten etwas länger dauern.\n" +
+                    "Bitte haben Sie etwas Gedult." + "\033[0m");
+        }
         allStops = generateAllStops(trainConnections);
         Reduction1 reduction1 = new Reduction1();
         reduction1.algorithmus(trainConnections);

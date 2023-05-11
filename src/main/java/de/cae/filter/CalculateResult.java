@@ -18,9 +18,6 @@ public class CalculateResult implements IFilter<ArrayList<ArrayList<String>>, Ar
      */
     @Override
     public ArrayList<String> algorithmus(ArrayList<ArrayList<String>> trainConnections) {
-        if (trainConnections.size() > 100) {
-
-        }
         ArrayList<String> result = new ArrayList<>();
         while (!trainConnections.isEmpty()) {
             ArrayList<String> allStops = generateAllStops(trainConnections);
